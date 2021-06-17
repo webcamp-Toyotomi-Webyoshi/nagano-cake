@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
   #会員側のルーティング設定
   root :to => 'homes#homes'
   get 'about' => 'homes#about'
