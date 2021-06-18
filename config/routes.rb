@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :customers
   devise_for :admin
   #会員側のルーティング設定
   scope module: :public do
