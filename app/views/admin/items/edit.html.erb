@@ -1,0 +1,37 @@
+<h2>商品編集</h2>
+
+<%= form_for(@item, url: admin_item_path) do |f| %>
+<div class="form-items">
+  <%= f.label :"商品画像" %>
+  <%= f.attachment_field :image %>
+</div>
+
+<div class="form-items">
+  <%= f.label :"商品名" %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form-items">
+  <%= f.label :"商品説明" %>
+  <%= f.text_area :introduction %>
+</div>
+
+<div class="form-items">
+  <%= f.label :"ジャンル" %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+</div>
+
+<div class="form-items">
+  <%= f.label :"税抜き価格" %>
+  <%= f.text_field :price %>
+</div>
+
+<div class="form-items">
+  <%= f.label :"販売ステータス" %>
+  <%= f.select :is_active, [["販売中",true],["販売停止",false]] %>
+</div>
+
+<div class="form-items">
+  <%= f.submit :変更を保存 %>
+</div>
+<% end %>
