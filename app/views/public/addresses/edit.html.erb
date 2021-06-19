@@ -1,0 +1,15 @@
+<div class="main">
+  <h2>配送先編集</h2>
+
+  <%= form_for @address, url: address_path(@address.id), local: ture do |f| %>
+    <%= f.label "郵便番号（ハイフンなし）" %>
+    <%= f.text_field :post_cord, placeholder: "0000000", :maxlength => 7 %>
+
+    <%= f.label "住所" %>
+    <%= f.text_field :address, placeholder: "東京都葛飾区亀有3-49-3 アリオ亀有3F" %>
+
+    <%= f.label "宛名" %>
+    <%= f.text_field :name, placeholder: "両津勘吉" %>
+    <%= f.submit "変更内容を" %>
+  <% end %>
+</div>
