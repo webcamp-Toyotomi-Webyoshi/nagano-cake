@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="mt-5">商品詳細</h2>
+  <div class="card mb-3" style="max-width: 900px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= attachment_image_tag @item, :image, size:"300x350" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">商品名： <%= @item.name %></h3>
+          <h6 class="card-text mb-5">商品説明： <%= @item.introduction %></h6>
+          <h6 class="card-text">税込価格： ￥<%= @item.add_tax_price.to_s %>（税込）</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--個数選択・カートに移動-->
+</div>
