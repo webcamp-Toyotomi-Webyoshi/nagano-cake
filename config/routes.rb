@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
-  devise_for :admin
+  devise_for :admin,controllers: {
+    sessions: 'admin/sessions'
+  }
+  devise_for :customers,controllers: {
+    registrations: 'public/registrations',
+    sessions: 'public/sessions'
+  }
   #会員側のルーティング設定
   scope module: :public do
     root :to => 'homes#homes'
@@ -9,8 +14,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :show]
     #idを非表示にさせたい
     resources :customers, only: [:show, :edit, :update]
-    get 'custmers/unsubscibe' => 'users#unsubscribe'
-    get 'custmers/withdraw' => 'users#withdraw'
+    get 'customers/unsubscibe' => 'customers#unsubscribe'
+    get 'customers/withdraw' => 'customers#withdraw'
     #--------------------
     resources :orders, only: [:index, :create, :new, :show]
     post 'orders/confirm' => 'orders#confirm'
