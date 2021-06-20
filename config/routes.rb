@@ -3,19 +3,23 @@ Rails.application.routes.draw do
   devise_for :admin,controllers: {
     sessions: 'admin/sessions'
   }
-  devise_for :customers,controllers: {
-    registrations: 'public/registrations',
-    sessions: 'public/sessions'
-  }
+  devise_for :customers, skip: :all
+  devise_scope :customer do
+    get 'customers/sign_up' => 'public/registrations#new'
+    post 'customers' => 'public/registrations#create'
+    get 'customers/sign_in' => 'public/sessions#new'
+    post '/customers/sign_in' => 'public/sessions#create'
+    delete '/customers/sign_out' => 'public/sessions#destroy'
+  end
   #会員側のルーティング設定
   scope module: :public do
     root :to => 'homes#homes'
     get 'about' => 'homes#about'
     resources :items, only: [:index, :show]
     #idを非表示にさせたい
-    resources :customers, only: [:show, :edit, :update]
-    get 'customers/unsubscibe' => 'customers#unsubscribe'
-    get 'customers/withdraw' => 'customers#withdraw'
+    resource :customers, only: [:show, :edit, :update]
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
     #--------------------
     resources :orders, only: [:index, :create, :new, :show]
     post 'orders/confirm' => 'orders#confirm'

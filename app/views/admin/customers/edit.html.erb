@@ -40,7 +40,10 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <label><%= f.radio_button :customer_status, :false %>有効</label>
+  <label><%= f.radio_button :customer_status, :true %>退会</label>
+
   <div class="form-group">
-    <%= f.submit "編集内容を保存" %>
+    <%= f.submit "編集を保存" %>
   </div>
 <% end %>

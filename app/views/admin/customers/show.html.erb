@@ -1,4 +1,3 @@
-<%= link_to "変態", admin_customers_path %>
   <div class="field">
     <span>氏名</span><%= @customer.full_name %>
   </div>
@@ -22,3 +21,14 @@
   <div class="field">
     <span>メールアドレス</span><%= @customer.email %>
   </div>
+  <% if customer.customer_status == false %>
+  <div class="field">
+    <span>会員ステータス</span><span>有効</span>
+  </div>
+  <% else %>
+  <div class="field">
+    <span>会員ステータス</span><span>退会</span>
+  </div>
+
+  <%= link_to "編集する", admin_customers_path %>
+  <%#= link_to "注文履歴一覧を見る", ??? %>

@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   def show
-   @customer = Customer.find(params[:id])
+   @customer = current_customer
   end
 
   def edit
@@ -10,16 +10,15 @@ class Public::CustomersController < ApplicationController
   def update
    @customer = current_customer
    @customer.update(customer_params)
-   redirect_to customer_path(@customer)
+   redirect_to customers_path
   end
-  
+
   def unsubscribe
-    @user = User.find_by(name: params[:name])
   end
 
   def withdraw
-    @user = User.find_by(name: params[:name])
-    @user.update(customer_status: "有効")
+    @customer = current_customer
+    @customer.update(customer_status: :true)
     reset_session
     redirect_to root_path
   end

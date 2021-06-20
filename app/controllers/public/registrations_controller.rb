@@ -29,9 +29,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #  super
   #end
 
-  def after_sign_up_path_for(resource)
-    customer_path(resource)
-  end
+  #def after_sign_up_path_for(resource)
+   # customers_path
+  #end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign
@@ -47,7 +47,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana,
-                                                       :post_cord, :address, :telephone])
+                                                       :post_cord, :address, :telephone, :customer_status])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
@@ -61,7 +61,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
+  #def after_inactive_sign_up_path_for(resource)
+   # edit_customers_path
   #   super(resource)
-  # end
+  #end
 end

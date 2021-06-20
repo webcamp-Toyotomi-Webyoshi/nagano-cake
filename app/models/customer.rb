@@ -11,10 +11,8 @@ class Customer < ApplicationRecord
   def full_name_kana
     self.first_name_kana + self.last_name_kana
   end
-  
-  enum customer_status: {"退会": true,  "有効": false}
-  
-  def active_for_authentication?
-    super && (self.customer_status === "有効")
+
+  def customer_status_for_authentication?
+    super && (self.customer_status == false)
   end
 end
