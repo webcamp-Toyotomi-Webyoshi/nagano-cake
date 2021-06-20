@@ -1,0 +1,55 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Nagano CAKE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <% if admin_signed_in? %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">商品一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">会員一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">注文履歴一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ジャンル一覧</a>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link" %>
+                </li>
+            <% elsif customer_signed_in? %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">マイページ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">商品一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">カート</a>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "ログアウト", customers_sign_out_path, method: :delete, class:"nav-link" %>
+                </li>
+             <% else %>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">商品一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">新規登録</a>
+                </li>
+                <li class="nav-item">
+                   <%= link_to "ログイン", customers_sign_in_path, class:"nav-link" %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+  </nav>
+</header>
