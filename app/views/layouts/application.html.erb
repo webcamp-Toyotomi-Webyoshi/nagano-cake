@@ -8,10 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-  <%= render 'layouts/header' %>
-  <main>
-    <%= yield %>
-  </main>
-  <%= render 'layouts/footer' %>
+    <%= render 'layouts/header' %>
+    <main><%= yield %></main>
+    <%= render 'layouts/footer' %>
+
   </body>
 </html>
