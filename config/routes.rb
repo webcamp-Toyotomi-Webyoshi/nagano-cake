@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #会員側のルーティング設定
   scope module: :public do
-    root :to => 'homes#homes'
+    root :to => 'homes#top'
     get 'about' => 'homes#about'
     resources :items, only: [:index, :show]
     #idを非表示にさせたい
