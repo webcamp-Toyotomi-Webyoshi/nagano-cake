@@ -1,31 +1,51 @@
-<div class="main">
-  <h2>配送先登録/一覧</h2>
-
-  <%= form_for @address, url: addresses_path, local: true do |f| %>
-    <%= f.label "郵便番号（ハイフンなし）" %>
-    <%= f.text_field :post_cord, placeholder: "0000000", :maxlength => 7 %>
-
-    <%= f.label "住所" %>
-    <%= f.text_field :address, placeholder: "東京都葛飾区亀有3-49-3 アリオ亀有3F" %>
-
-    <%= f.label "宛名" %>
-    <%= f.text_field :name, placeholder: "両津勘吉" %>
-    <%= f.submit "確認画面に進む" %>
-  <% end %>
-
-  <table border="1">
-    <thead>
-      <tr>
-        <th>郵便番号</th>
-        <th>住所</th>
-        <th>宛名</th>
-        <th colspan="2"></th>
-      </tr>
-    </thead>
-    <thead>
-      <!--<#%= render 'public/addresses/index', addresses: @addresses %>-->
-      <!--current_customerが必要だっちゃ！-->
-
-    </thead>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 px-sm-0 mb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <h2 class="font-weight-bold mt-5 mb-5 mx-3 bg-light">配送先登録/一覧</h2>
+          </div>
+        </div>
+      </div>
+      <%= form_for @address, url: addresses_path, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label "郵便番号（ハイフンなし）" %>
+        <%= f.text_field :post_cord, placeholder: "0000000", :maxlength => 7, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "住所" %>
+        <%= f.text_field :address, placeholder: "東京都葛飾区亀有3-49-3 アリオ亀有3F", class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "宛名" %>
+        <%= f.text_field :name, placeholder: "両津勘吉", class:"form-control"  %>
+      </div>
+        <%= f.submit "確認画面に進む" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-10 px-sm-0">
+      <table class="table table-cordered mt-5">
+        <thead class="table-light">
+          <tr>
+            <th class="border bg-light" style="width: 10%">郵便番号</th>
+            <th class="border bg-light" style="width: 40%">住所</th>
+            <th class="border bg-light" style="width: 25%">宛名</th>
+            <th class="border bg-light" style="width: 25%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>うんこ</th>
+            <th>ちんこっこ</th>
+            <th>まんこっこ</th>
+            <th>詳細</th>
+            <th>削除</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
