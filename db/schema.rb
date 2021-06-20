@@ -36,20 +36,6 @@ ActiveRecord::Schema.define(version: 20210616183548) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string   "last_name",                          null: false
-    t.string   "first_name",                         null: false
-    t.string   "last_name_kana",                     null: false
-    t.string   "first_name_kana",                    null: false
-    t.string   "post_cord",                          null: false
-    t.string   "address",                            null: false
-    t.string   "telephone",                          null: false
-    t.string   "encrypted_password",                 null: false
-    t.boolean  "customer_status",    default: false, null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-  end
-
   create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
