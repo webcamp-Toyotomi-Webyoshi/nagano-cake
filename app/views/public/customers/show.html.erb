@@ -1,0 +1,24 @@
+<%= link_to "編集", edit_customers_path %>
+  <div class="field">
+    <span>氏名</span><%= @customer.full_name %>
+  </div>
+
+  <div class="field">
+    <span>カナ</span><%= @customer.full_name_kana %>
+  </div>
+
+  <div class="field">
+    <span>郵便番号</span><br /><%= @customer.post_cord %>
+  </div>
+
+  <div class="field">
+    <span>住所</span><%= @customer.address %>
+  </div>
+
+  <div class="field">
+    <span>電話番号</span><%= @customer.telephone %>
+  </div>
+
+  <div class="field">
+    <span>メールアドレス</span><%= @customer.email %>
+  </div>
