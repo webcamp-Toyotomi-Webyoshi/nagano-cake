@@ -1,0 +1,66 @@
+<h2>注文履歴詳細</h2>
+
+<table>
+
+  <tr>
+    <th>購入者</th><td>さとう</td>
+  </tr>
+
+  <tr>
+    <th>注文日</th><td>19</td>
+  </tr>
+
+  <tr>
+    <th>配送先</th><td>A型</td>
+  </tr>
+
+  <tr>
+    <th>支払方法</th>
+      <% if order.payment_method == 0 %>
+        <td>クレジットカード</td>
+      <% elsif order.payment_method == 1 %>
+        <td>銀行振込</td>
+      <% end %>
+  </tr>
+
+  <tr>
+    <th>注文ステータス</th>
+    <td>
+      <%= f.select :order_status, [["入金待ち", 0 ],["入金確認", 1 ],["製作中", 2 ],["発送準備中", 3 ],["発送済み", 4 ]] %>
+      <%= button_to "更新" {controller: 'admin/orders', action: 'update'}, {method: :patch} %>
+    </td>
+  </tr>
+
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.order.each do |order| %>
+    <tr>
+
+      <td><%= link_to order.created_at , order_path(order.id)%></td>
+
+      <td><%= order.customer.full_name %></td>
+
+      <td><%= item.price %></td>
+
+      <td><%= f.select :order_status, [["入金待ち"],["入金確認"],["製作中"],["発送準備中"],["発送済み"]] %></td>
+
+    
+      <td></td>
+
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
