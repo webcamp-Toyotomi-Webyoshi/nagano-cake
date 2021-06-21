@@ -13,7 +13,7 @@
             <%= form_for(@cart_item, url: cart_items_path) do |f|%>
               <%= f.hidden_field :item_id, value: @item.id %>
               <%= f.number_field :amount, placeholder: "個数選択", min: 1 %>
-              <%= f.submit "カート入れる" %>
+              <%= f.submit "カート入れる", class:"btn btn-success"%>
             <% end %>
           </div>
         </div>
