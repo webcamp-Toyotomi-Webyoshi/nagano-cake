@@ -16,9 +16,9 @@
 
   <tr>
     <th>支払方法</th>
-      <% if order.payment_method == 0 %>
+      <% if @order.payment_method == 0 %>
         <td>クレジットカード</td>
-      <% elsif order.payment_method == 1 %>
+      <% elsif @order.payment_method == 1 %>
         <td>銀行振込</td>
       <% end %>
   </tr>
