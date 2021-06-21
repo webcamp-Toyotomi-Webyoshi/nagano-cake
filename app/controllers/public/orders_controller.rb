@@ -2,13 +2,20 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @addresses = current_customer.address
+    @addresses = current_customer.addresses
+  end
+
+  def confirm
+    @order = Order.new(order_params)
+    @cart_item = current_customer.cart_items
   end
 
   def create
     @order = Order.new(order_params)
-    @order.save
-    redirect_to new_order_path
+  end
+
+  def index
+    @orders = current_customer.orders.all
   end
 
   private

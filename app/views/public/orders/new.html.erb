@@ -31,7 +31,7 @@
           <%= f.radio_button :address, "address" %>
           <span>登録先住所から選択</span>
           <br>
-          <!--<　%= f.collection_select(:address)%>-->
+          <%= f.collection_select(:customer_id, @addresses, :id, :address) %>
         </div>
         <div class="col-xs-10 radio ml-3">
           <%= f.radio_button :address, "address" %>
