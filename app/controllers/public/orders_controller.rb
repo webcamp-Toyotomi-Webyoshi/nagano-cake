@@ -10,29 +10,30 @@ class Public::OrdersController < ApplicationController
     @cart_item = current_customer.cart_items
   end
 
+  def complete
+
+  end
+
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.postage = 800
     @order.total_payment = 500
     @order.name = "ヤマぐり"
-    @order.address = ""
-    @order.post_cord = ""
+    @order.address = "熊本城"
+    @order.post_cord = "19191919"
     @order.save
-    redirect_to orders_complete_path
+    render 'complete'
   end
 
   def index
-    @orders = current_customer.orders.all
+    @orders = current_customer.orders
   end
-  
+
   def show
     @order = Order.find(params[:id])
+    @cart_item = current_customer.cart_items
   end
-
-  def complete
-  end
-
 
   private
   def order_params
