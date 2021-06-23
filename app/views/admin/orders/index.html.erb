@@ -14,9 +14,9 @@
   <tbody>
     <% @orders.each do |order| %>
     <tr>
-      <td>test<%= link_to order.created_at, admin_order_path(order.id) %></td>
+      <td><%= link_to order.created_at, admin_order_path(order.id) %></td>
       <td><%= order.customer.full_name %></td>
-      <td>test<%#= order.order_items.item_quantity %></td>
+      <td><%= order.order_items.sum(:item_quantity) %></td>
       <td><%= order.order_status %></td>
 
     </tr>

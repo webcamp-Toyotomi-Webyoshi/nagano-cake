@@ -37,10 +37,11 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'homes' => 'homes#top'
     get 'customer/:id/orders' => 'orders#customer_index', as: 'customer_orders'
-    patch 'order_items/:id' => 'orders#update'
+    patch 'order_items/:id' => 'order_items#update', as: 'order_item'
     resources :items, only: [:index, :create, :new, :edit, :show, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
+
   end
 end
