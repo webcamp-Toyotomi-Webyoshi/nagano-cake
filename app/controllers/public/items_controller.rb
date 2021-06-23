@@ -3,6 +3,11 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).per(PER)
+    <% if @item.is_active == true %>
+      
+    <% elsif @item.is_active == false %>
+    
+    <% end %>
   end
 
   def show

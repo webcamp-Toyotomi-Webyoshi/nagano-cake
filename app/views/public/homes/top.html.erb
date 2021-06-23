@@ -2,20 +2,20 @@
     <div class = "row">
       <div class = "col-lg-8 mx-auto">
         <div class = "text-box">
-          <div class="card mx-auto" style="max-width: 400px;">
-  <img class="card-img　mx-auto" src="https://msp.c.yimg.jp/images/v2/FUTi93tXq405grZVGgDqG91QM86O1YhH7vFVPy1bQZ60PByq8v7u6bKUDjpk_dbrWwUiTmSDRZMIglhmGjv8u5IrEyKcuVyTarBGmSreWW-LEdEtbHLHey_jrebRKjuaa7Q6dGj5nTEVmZ7KMP9RE24KkBNr7OdenkQnSrVjB3IEphihb3f6TwpwzQHQs5bN5Cw9gEQSiFimyAYapjL9v9HxzNIcMB5EPp1zOXKRm6s=/img_sankaku_short_181017.jpg?errorImage=false" alt="">
-  <div class="card-img-overlay">
-    <p class="text-black text-center">
-      ようこそ、ながのCAKEへ<br />
-        このサイトは、ケーキ販売のECサイトになります！<br />
-        会員でない方も商品の閲覧はできますが、<br />
-        購入には会員登録が必要になります。<br />
-      </p>
-  </div>
-</div>
+            <img class="card-img　mx-auto mt-5" src="https://www.quil-fait-bon.com/imgdata/omn/474w.jpg" alt="">
+              <p class="lead text-center mt-3">
+                ようこそ、ながのCAKEへ<br />
+                このサイトは、ケーキ販売のECサイトになります！<br />
+                会員でない方も商品の閲覧はできますが、購入には会員登録が必要になります。<br />
+              </p>
         </div>
       </div>
     </div>
-    <h2 class = "font-weight-bold mt-5 mb-4"><i class="far fa-plus-square"></i>新着商品</h2>
+  </div>
+  <div style="background-color: #CD853F; width: 100%;">
+    <div class = "container">
+      <h2 class = "mt-5 mb-2"><i class="far fa-plus-square"></i>New</h2>
+      <%= render 'public/items/items', items: @items %>
       <p class = "text-right"><%= link_to "全ての商品を見る⇒", items_path , class: "text-dark" %></p>
+    </div>
   </div>
