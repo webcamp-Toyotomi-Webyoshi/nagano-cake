@@ -1,24 +1,38 @@
-<%= link_to "編集", edit_customers_path %>
-  <div class="field">
-    <span>氏名</span><%= @customer.full_name %>
-  </div>
+<div class="container">
+  <h2 class="mt-5">My Page</h2>
+  <h4>登録情報　　<%= link_to "編集する", edit_customers_path, class:"btn btn-success" %></h4>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">氏名</th>
+        <td><%= @customer.full_name %></td>
+      </tr>
 
-  <div class="field">
-    <span>カナ</span><%= @customer.full_name_kana %>
-  </div>
+      <tr>
+        <th scope="row">カナ</th>
+        <td><%= @customer.full_name_kana %></td>
+      </tr>
 
-  <div class="field">
-    <span>郵便番号</span><br /><%= @customer.post_cord %>
-  </div>
+      <tr>
+        <th scope="row">郵便番号</th>
+        <td><%= @customer.post_cord %></td>
+      </tr>
 
-  <div class="field">
-    <span>住所</span><%= @customer.address %>
-  </div>
+      <tr>
+        <th scope="row">住所</th>
+        <td><%= @customer.address %></td>
+      </tr>
 
-  <div class="field">
-    <span>電話番号</span><%= @customer.telephone %>
-  </div>
+      <tr>
+        <th scope="row">電話番号</th>
+        <td><%= @customer.telephone %></td>
+      </tr>
 
-  <div class="field">
-    <span>メールアドレス</span><%= @customer.email %>
-  </div>
+      <tr>
+        <th scope="row">メールアドレス</th>
+        <td><%= @customer.email %></td>
+      </tr>
+  </table>
+  <h4>配送先　　　<%= link_to "一覧を見る", addresses_path(@customer.id), class:"btn btn-primary" %></h4>
+  <h4>注文履歴　　<%= link_to "一覧を見る", orders_path(@customer.id), class:"btn btn-primary" %></h4>
+</div>
