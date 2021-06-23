@@ -19,13 +19,19 @@ class Public::OrdersController < ApplicationController
     @order.address = ""
     @order.post_cord = ""
     @order.save
+    order_item = OrderItem.new
+    order_item.order_id = @order.id
+    order_item.item_id = 1
+    order_item.item_quantity = 1
+    order_item.price = 1111
+    order_item.save
     redirect_to orders_complete_path
   end
 
   def index
     @orders = current_customer.orders.all
   end
-  
+
   def show
     @order = Order.find(params[:id])
   end

@@ -12,15 +12,15 @@
     </tr>
   </thead>
   <tbody>
-    <%# @customer.each do |order| %>
+    <% @customer.orders.each do |order| %>
     <tr>
-      <td>test<%#= link_to order.created_at, admin_order_path %></td>
-      <td>test<%#= order.customer.full_name %></td>
+      <td>test<%= link_to order.created_at, admin_order_path(order.id) %></td>
+      <td>test<%= order.customer.full_name %></td>
       <td>test<%#= order.order_items.item_quantity %></td>
-      <td>order.order_status</td>
+      <td><%= order.order_status %></td>
 
     </tr>
-    <%# end %>
+    <% end %>
   </tbody>
 </table>
 </div>

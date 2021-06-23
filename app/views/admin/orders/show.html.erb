@@ -3,32 +3,33 @@
 <table>
 
   <tr>
-    <th>購入者</th><td>test</td>
+    <th>購入者</th><td><%= @order.customer.full_name %></td>
   </tr>
 
   <tr>
-    <th>注文日</th><td>test</td>
+    <th>注文日</th><td><%= @order.created_at %></td>
   </tr>
 
   <tr>
-    <th>配送先</th><td>test</td>
+    <th>配送先</th><td><%= @order.address %></td>
   </tr>
 
   <tr>
     <th>支払方法</th>
-      <%# if @order.payment_method == 0 %>
+      <% if @order.payment_method == 0 %>
         <td>クレジットカード</td>
-      <%# elsif @order.payment_method == 1 %>
+      <% elsif @order.payment_method == 1 %>
         <td>銀行振込</td>
-      <%# end %>
+      <% end %>
   </tr>
 
   <tr>
     <th>注文ステータス</th>
     <td>
-      <%#= f.select :order_status, [["入金待ち", 0 ],["入金確認", 1 ],["製作中", 2 ],["発送準備中", 3 ],["発送済み", 4 ]] %>
-      <%#= button_to "更新" {controller: 'admin/orders', action: 'update'}, {method: :patch} %>
-      test
+      <%= form_for(@order, url: admin_order_path) do |f| %>
+      <%= f.select :order_status, [["入金待ち" ],["入金確認"],["製作中"],["発送準備中"],["発送済み"]] %>
+      <%= f.submit "更新" %>
+      <% end %>
     </td>
   </tr>
 
@@ -46,22 +47,26 @@
     </tr>
   </thead>
   <tbody>
-    <%# @order.each do |order| %>
     <tr>
+      <% @order_items.each do |order_item| %>
+      <td><%= order_item.item.name %></td>
 
-      <td>test<%#= order.order_items%></td>
+      <td>test<%= order_item.price %></td>
 
-      <td>test<%#= order.customer.full_name %></td>
+      <td>test<%= order_item.item_quantity %></td>
 
-      <td>test<%#= order_item.price %></td>
-
-      <td>test<%#= f.select :order_status, [["入金待ち"],["入金確認"],["製作中"],["発送準備中"],["発送済み"]] %></td>
+      <td><%= f.select :order_status, [["入金待ち"],["入金確認"],["製作中"],["発送準備中"],["発送済み"]] %></td>
 
 
-      <td></td>
+      <td>
+        <%#= form_for(@order_item, url: admin_order_path) do |f| %>
+          <%#= f.select :order_status, [["入金待ち" ],["入金確認"],["製作中"],["発送準備中"],["発送済み"]] %>
+          <%#= f.submit "更新" %>
+        <%# end %>
+      </td>
+      <% end %>
 
     </tr>
-    <%# end %>
   </tbody>
 </table>
 
