@@ -65,19 +65,19 @@
                 <th>個数</th>
                 <th>小計</th>
               </tr>
-              <% @cart_item.each do |cart| %>
+              <% @order_item.each do |order_item| %>
               <tr>
                 <td>
-                  <string class="ml-2"><%= cart.item.name %></string>
+                  <string class="ml-2"><%= order_item.item.name %></string>
                 </td>
                 <td>
-                  <%= ((cart.item.price*1.10).to_i).to_s(:delimited) %>
+                  <%= ((order_item.item.price*1.10).to_i).to_s(:delimited) %>
                 </td>
                 <td>
-                  <%= cart.amount %>
+                  <%= order_item.item_quantity %>
                 </td>
                 <td>
-                  <%= ((cart.item.price*1.10).to_i*(cart.amount).to_i).to_s(:delimited) %>
+                  <%= ((order_item.item.price*1.10).to_i*(order_item.item_quantity).to_i).to_s(:delimited) %>
                 </td>
               </tr>
               <% end %>
