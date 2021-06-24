@@ -6,8 +6,8 @@
       <img class="card-img mt-3" src="https://omotesando-info.com/webmagazine/wp-content/uploads/01_FE-XMAS-CAKE2.jpg" alt="">
     </div>
     <div class="col-sm">
+        <%= form_for(resource, as: resource_name, url: customers_sign_in_path) do |f| %>
         <div class="mb-3">
-          <%= form_for(resource, as: resource_name, url: customers_sign_in_path) do |f| %>
           <div class="form-group">
             <%= f.label :email, class:"form-label" %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
