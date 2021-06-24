@@ -1,9 +1,9 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Log in", customers_sign_in_path %><br />
+  <%= link_to "Log in", customers_sign_in_path, class:"btn btn-success" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", customers_sign_up_path %><br />
+  <%= link_to "Sign up", customers_sign_up_path, class:"btn btn-primary" %><br />
 <% end %>
 
 <%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
