@@ -8,7 +8,6 @@ class Public::OrdersController < ApplicationController
     @cart_item = current_customer.cart_items
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.payment_method = params[:order][:payment_method]
 
     if params[:addresses] == "address"
       @order.post_cord = current_customer.post_cord
@@ -41,17 +40,17 @@ class Public::OrdersController < ApplicationController
     @order.customer_id = current_customer.id
     @order.save
 
-    @cart_items = current_customer.cart_items.all
-      @cart_items.each do |cart|
-        # @order_items = @order.order_items.new
-        # @order_items.order_id = @order.id
-        # @order_items.item_id = cart.item.id
-        # # @order_items.price = cart.items.price
+    current_customer.cart_items.each do |cart|
+      @order_item = OrderItem.new
+      @order_item.item_id = cart.item.id
+      @order_item.order_id = @order.id
+      @order_item.item_quantity = cart.amount
+      @order_item.price = cart.item.price
+      @order_item.save
+    end
+    current_customer.cart_items.destroy_all
+    render :complete
 
-        # @order_items.save
-      end
-        current_customer.cart_items.destroy_all
-        render :complete
   end
 
   def index
@@ -60,11 +59,12 @@ class Public::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @cart_item = current_customer.cart_items
+    @order_item = @order.order_items
+
   end
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :address, :post_cord, :name, :postage, :total_payment, :status )
+    params.require(:order).permit(:payment_method, :address, :post_cord, :name, :postage, :total_payment, :status, :item_quantity )
   end
 end
