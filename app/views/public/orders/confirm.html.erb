@@ -1,4 +1,4 @@
-  <div class="container" style="">
+  <div class="container">
     <div class="row">
       <div class="col-sm-12  my-3">
         <div class="container">
@@ -9,7 +9,7 @@
           </div>
         </div>
         <table class="table table-borderd">
-          <thead class= "table-light">
+          <thead class="table-light">
             <tr>
               <th class="border-dark bg-light" style="width: 20%">商品名</th>
               <th class="border-dark bg-light" style="width: 10%">単価</th>
@@ -73,11 +73,22 @@
           </table>
         </div>
         <div>
+<<<<<<< HEAD
         <%= form_for @order, url: orders_path, method: :post, local: true do |f| %>
           <%= f.hidden_field :post_cord %>
           <%= f.hidden_field :name %>
           <%= f.hidden_field :address %>
           <%= f.hidden_field :payment_method %>
+=======
+        <%= form_for @order, url: orders_path do |f| %>
+          <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+          <%= f.hidden_field :post_cord, :value => @order.post_cord %>
+          <%= f.hidden_field :address, :value => @order.address %>
+          <!--< %= f.hidden_field :item_quantity, :value => @order %>-->
+          <%= f.hidden_field :name, :value => @order.name %>
+          <%= f.hidden_field :total_payment, :value => (@subtotal + 800) %>
+          <%= f.hidden_field :postage, :value => "800" %>
+>>>>>>> 3a69650424cb64f19a2673ee9dd62a89147c65f3
 
           <%= f.submit "購入を確定する", class:"btn btn-success" %>
         <% end %>

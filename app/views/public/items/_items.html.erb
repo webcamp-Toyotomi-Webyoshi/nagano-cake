@@ -5,7 +5,11 @@
         <%= attachment_image_tag item, :image, size:"200x200", class:"card-img-top" %>
         <div class="card-body">
           <h5 class="card-title"><%= link_to item.name, item_path(item.id) %></h5>
-          <p class="card-text">￥<%= item.price %></p>
+          <% if item.is_active == true %>
+            <p class="card-text">￥<%= item.price %></p>
+          <% elsif item.is_active == false %>
+            <p class="card-text text-muted">売り切れ中</p>
+          <% end %>
         </div>
       </div>
     </div>
