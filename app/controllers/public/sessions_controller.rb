@@ -10,20 +10,20 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
-  #GET /resource/sign_in
-  def new
-    super
-  end
+  # #GET /resource/sign_in
+  # def new
+  #   super
+  # end
 
-  #POST /resource/sign_in
-  def create
-    super
-  end
+  # #POST /resource/sign_in
+  # def create
+  #   super
+  # end
 
-  # DELETE /resource/sign_out
-  def destroy
-    super
-  end
+  # # DELETE /resource/sign_out
+  # def destroy
+  #   super
+  # end
 
   def reject_inactive_customer
     @customer = Customer.find_by(email: params[:customer][:email])

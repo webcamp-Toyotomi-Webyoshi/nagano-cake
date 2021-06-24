@@ -60,11 +60,14 @@ class Public::OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @order_item = @order.order_items
-
   end
+
+  def complete
+  end
+
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :address, :post_cord, :name, :postage, :total_payment, :status, :item_quantity )
+    params.require(:order).permit(:payment_method, :address, :post_cord, :name, :postage, :total_payment, :item_quantity )
   end
 end

@@ -36,10 +36,12 @@ Rails.application.routes.draw do
   #管理者側のルーティング設定
   namespace :admin do
     get 'homes' => 'homes#top'
-    patch 'order_items/:id' => 'orders#update'
+    get 'customer/:id/orders' => 'orders#customer_index', as: 'customer_orders'
     resources :items, only: [:index, :create, :new, :edit, :show, :update]
     resources :genres, only: [:index, :create, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index, :show, :update]
+    resources :order_items, only: [:update]
+
   end
 end
