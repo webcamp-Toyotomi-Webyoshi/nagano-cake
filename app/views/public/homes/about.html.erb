@@ -1,15 +1,35 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col-lg-8 mx-auto">
-      <div class = "display-2 pb-4 text-center">About</div>
-      <div class = "text-center font-size: 100px">
-        ながのCAKEは全国発送可能なケーキ屋さんです。<br />
-        お⼦様からお年寄りの⽅までお召し上がりいただけるよう、<br />
-        様々なバリエーションをご⽤意しております。<br />
-        また、全国へ発送可能ですので「いつ」でも「どこ」でもご注⽂いただけます。<br />
-        ぜひご注⽂ください。<br />
-        <br />
-        <img class="card-img　mx-auto mt-4" src="http://osakavisa.com/wp-content/uploads/2016/08/9dfef523c537cacbdab751105e5906a0_s.jpg" alt="">
-      </div>
+<div id="about" class="big-bg">
+  <header class="page-header wrapper">
+    <%= image_tag 'logo.png' %>
+    <nav>
+      <ul class="main-nav">
+        <u><%= link_to "商品一覧", items_path, class:"nav-link text-body" %></u>
+        <u><%= link_to "新規登録", customers_sign_up_path, class:"nav-link text-body" %></u>
+        <u><%= link_to "ログイン", customers_sign_in_path, class:"nav-link text-body" %></u>
+      </ul>
+    </nav>
+  </header>
+  <div class="about-content wrapper">
+    <h2 class="page-title">I love you...</h2>
+    <p>ブラジルのナンシーさんも認める味を貴方の元へ</p>
+    <%= link_to "新規登録", new_admin_session_path, local: true, class: "btn btn-success btn-lg mr-5" %>
+    <%= link_to "ログイン", customers_sign_in_path, local: true, class: "btn btn-info btn-lg" %>
+  </div>
+</div>
+
+<section id="location">
+  <div class="wrapper">
+    <div class="location-info">
+      <h3 class="sub-title">名古屋ケーキ 大阪城店</h3>
+      <p>
+        住所：〒540-0002 大阪府大阪市中央区大阪城１−１<br>
+        電話：000-000-0000<br>
+        営業時間: 10:00〜17:00<br>
+        休日：月・水・祝
+      </p>
+    </div>
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13122.829642376413!2d135.5259555!3d34.6873333!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf01d07d5ca11e41!2z5aSn6Ziq5Z-O!5e0!3m2!1sja!2sjp!4v1624623686887!5m2!1sja!2sjp" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
+</section>

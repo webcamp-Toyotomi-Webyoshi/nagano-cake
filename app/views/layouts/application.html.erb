@@ -6,9 +6,71 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      img {max-width: 100%; }
+      .main-nav {
+        display: flex;
+        font-size: 20px;
+        margin-top: 34px;
+        list-style: none;
+      }
+      .main-nav li {
+        margin-left: 36px;
+      }
+
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .about-content {
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .about-content p {
+        font-size: 1.125rem;
+        margin: 10px 0 480px;
+      }
+
+      .page-title {
+        font-size: 80px;
+        font-family: serif;
+        font-weight: normal;
+      }
+
+      .big-bg {
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+
+      .sub-title {
+        border-bottom: 1px solid #000;
+      }
+
+      #about {
+        background-image: url("<%= asset_path('image4.jpg') %>");
+        min-height: 100vh;
+      }
+
+      #location {
+        margin: 20px 0 20px;
+      }
+    </style>
+
   </head>
   <body>
+    <!--aboutページでは呼び出さない-->
+  <% unless current_page?(about_path) %>
     <%= render 'layouts/header' %>
+  <% end %>
     <main><%= yield %></main>
     <%= render 'layouts/footer' %>
 
