@@ -1,5 +1,9 @@
 class Public::CartItemsController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate
+
+  def authenticate
+    redirect_to customers_sign_in_path unless customer_signed_in?
+  end
 
   def index
     @cart_items = CartItem.where(customer_id: current_customer.id)
