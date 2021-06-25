@@ -1,89 +1,84 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-12 px-sm-0 mb-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-3">
-            <h2 class="font-weight-bold mt-5 bg-light">注文履歴詳細</h2>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex">
-        <div class="pr-2">
-          <h3>注文情報</h3>
-          <table>
-            <tr>
-              <td>注文日</td>
-              <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-            </tr>
-            <tr>
-              <td>配送先</td>
-              <td>
-                📮<%= @order.post_cord %><br>
-                  <%= @order.address %><br>
-                  <%= @order.name %>
-              </td>
-            </tr>
-            <tr>
-              <td>支払方法</td>
-              <td><%= @order.payment_method %></td>
-            </tr>
-            <tr>
-              <td>配送情報</td>
-              <td><%= @order.order_status %></td>
-            </tr>
-          </table>
-        </di>
-      </div>
-      <div class="row">
-        <div>
-          <h3>請求情報</h3>
-          <table class="table">
-            <tr>
-              <td>商品合計</td>
-              <td><%= @order.total_payment %></td>
-            </tr>
-            <tr>
-              <td>送料</td>
-              <td>800</td>
-            </tr>
-            <tr>
-              <td>ご請求金額</td>
-              <td>
-                <%= (@order.total_payment + 800).to_s(:delimited) %>
-              </td>
-            </tr>
-          </table>
-        </div>
-        <div class="row">
-          <div>
-            <h3>注文内容</h3>
-            <table class="table">
-              <tr>
-                <th>商品</th>
-                <th>単価（税込）</th>
-                <th>個数</th>
-                <th>小計</th>
-              </tr>
-              <% @order_item.each do |order_item| %>
-              <tr>
-                <td>
-                  <string class="ml-2"><%= order_item.item.name %></string>
-                </td>
-                <td>
-                  <%= ((order_item.item.price*1.10).to_i).to_s(:delimited) %>
-                </td>
-                <td>
-                  <%= order_item.item_quantity %>
-                </td>
-                <td>
-                  <%= ((order_item.item.price*1.10).to_i*(order_item.item_quantity).to_i).to_s(:delimited) %>
-                </td>
-              </tr>
-              <% end %>
-            </table>
-          </div>
-        </div>
-      </div>
-  </div>
+  <h2 class="mt-5">注文履歴詳細</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <td>注文日</td>
+        <td>配送先</td>
+        <td>支払方法</td>
+        <td>配送情報</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+        <%= @order.created_at.strftime('%Y/%m/%d') %>
+        </td>
+        <td>
+        📮<%= @order.post_cord %><br>
+        🏠<%= @order.address %><br>
+        🙋<%= @order.name %>
+        </td>
+        <td>
+          <%= @order.payment_method %>
+        </td>
+        <td>
+          <%= @order.order_status %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 class="mt-5">注文内容</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>商品</th>
+        <th>単価（税込）</th>
+        <th>個数</th>
+        <th>小計</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order_item.each do |order_item| %>
+      <tr>
+        <td>
+          <string class="ml-2"><%= order_item.item.name %></string>
+        </td>
+        <td>
+          <%= ((order_item.item.price*1.10).to_i).to_s(:delimited) %>　円
+        </td>
+        <td>
+          <%= order_item.item_quantity %>　個
+        </td>
+        <td>
+          <%= ((order_item.item.price*1.10).to_i*(order_item.item_quantity).to_i).to_s(:delimited) %>　円
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <table class="table table-bordered">
+    <h2 class="mt-5">請求金額詳細</h2>
+    <thead class="table-dark">
+      <tr>
+        <td>商品合計金額</td>
+        <td>送料</td>
+        <td>ご請求金額</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= (@order.total_payment).to_s(:delimited) %>　円
+        </td>
+        <td>
+          800　円
+        </td>
+        <td>
+          <%= (@order.total_payment + 800).to_s(:delimited) %>　円
+         </td>
+       </tr>
+    </tbody>
+  </table>
+  <%= link_to "注文履歴一覧へ戻る", orders_path, class:"btn btn-success" %>
 </div>

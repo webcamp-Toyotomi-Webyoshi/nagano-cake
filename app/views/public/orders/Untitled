@@ -53,21 +53,24 @@
               <th>請求金額</th>
               <td><%= (@subtotal + 800).to_s(:delimited) %></td>
             </tr>
-            <tr>
-              <th>支払方法</th>
-              <td><%= @order.payment_method %></td>
-            </tr>
           </table>
         </div>
-        <div class="under_table">
-          <div class="deliver_address">
-            <h5>お届け先</h5>
-            <p>
-              📮 <%= @order.post_cord %><br>
-              🏠 <%= @order.address %><br>
-              🙋 <%= @order.name %>
-            </p>
-          </div>
+        <div>
+          <table>
+            <tr>
+              <th>
+                <h5>支払い方法</h5>
+                <td><h5><%= @order.payment_method %></h5></td>
+              </th>
+              <th>
+                <h5>お届け先</h5>
+                <td>
+                  <h5><%= @order.post_cord %> <%= @order.address %></h5>
+                  <h5><%= @order.name %></h5>
+                </td>
+              </th>
+            </tr>
+          </table>
         </div>
         <div>
         <%= form_for @order, url: orders_path do |f| %>

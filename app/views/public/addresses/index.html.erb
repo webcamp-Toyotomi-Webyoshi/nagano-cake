@@ -40,10 +40,10 @@
         <tbody id="address">
         <% @addresses.each do |address| %>
           <tr>
-            <th class="border bg-light"><%= address.post_cord %></th>
-            <th class="border bg-light"><%= address.address %></th>
-            <th class="border bg-light"><%= address.name %></th>
-            <th class="border bg-light">
+            <th><%= address.post_cord %></th>
+            <th><%= address.address %></th>
+            <th><%= address.name %></th>
+            <th>
               <%= link_to "編集する", edit_address_path(address), local: true, class: "btn btn-sm btn-success mr-3" %>
               <%= link_to "削除する", address_path(address), method: :delete, local: true, class: "btn btn-sm btn-danger" %>
             </th>
