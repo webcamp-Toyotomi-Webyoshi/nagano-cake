@@ -1,5 +1,10 @@
 class Admin::OrderItemsController < ApplicationController
+  before_action :authenticate_admin!
 
+  def authenticate
+    redirect_to admin_seesion_path unless admin_signed_in?
+  end
+  
   def update
    order_item = OrderItem.find(params[:id])
    order = order_item.order

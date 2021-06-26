@@ -1,4 +1,9 @@
 class Admin::OrdersController < ApplicationController
+  before_action :authenticate_admin!
+
+  def authenticate
+    redirect_to admin_seesion_path unless admin_signed_in?
+  end
 
   def index
    @orders = Order.all
