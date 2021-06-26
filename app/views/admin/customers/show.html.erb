@@ -4,7 +4,7 @@
     <tbody>
       <tr>
         <th scope="table-dark">氏名</th>
-        <td><%= @customer.full_name %></td>
+        <td class="text-dark"><%= @customer.full_name %></td>
       </tr>
 
       <tr>
@@ -44,5 +44,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-outline-secondary" %>
-  <%= link_to "注文履歴一覧を見る", admin_customer_orders_path, class:"btn btn-outline-secondary" %>
+  <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-secondary" %>
+  <%= link_to "注文履歴一覧を見る", admin_customer_orders_path, class:"btn btn-secondary" %>
