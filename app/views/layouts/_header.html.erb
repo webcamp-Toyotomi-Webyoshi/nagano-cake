@@ -8,45 +8,45 @@
         <ul class="navbar-nav">
             <% if admin_signed_in? %>
                 <li class="nav-item">
-                    <%= link_to "Items", admin_items_path, class:"nav-link" %>
+                    <%= link_to "Menu lists", admin_items_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "Customers", admin_customers_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Orders Log", admin_orders_path, class:"nav-link" %>
+                    <%= link_to "Orders log", admin_orders_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "Jenre", admin_genres_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Log Out", destroy_admin_session_path, method: :delete, class:"nav-link" %>
+                    <%= link_to "Log out", destroy_admin_session_path, method: :delete, class:"nav-link" %>
                 </li>
             <% elsif customer_signed_in? %>
                 <li class="nav-item">
                     <%= link_to current_customer.full_name, customers_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Items", items_path, class:"nav-link" %>
+                    <%= link_to "Menu lists", items_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "Cart", cart_items_path(current_customer), class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Log Out", customers_sign_out_path, method: :delete, class:"nav-link" %>
+                    <%= link_to "Log out", customers_sign_out_path, method: :delete, class:"nav-link" %>
                 </li>
              <% else %>
                 <li class="nav-item">
                     <%= link_to "About", about_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Items", items_path, class:"nav-link" %>
+                    <%= link_to "Menu lists", items_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to "Sign Up", customers_sign_up_path, class:"nav-link" %>
+                    <%= link_to "Sign up", customers_sign_up_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                   <%= link_to "Log In", customers_sign_in_path, class:"nav-link" %>
+                   <%= link_to "Log in", customers_sign_in_path, class:"nav-link" %>
                 </li>
             <% end %>
         </ul>
