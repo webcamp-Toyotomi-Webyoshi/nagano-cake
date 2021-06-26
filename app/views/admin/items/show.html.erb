@@ -1,13 +1,13 @@
   <div class="container">
     <h2 class="mt-5">商品詳細</h2>
-      <div class="card mb-3" style="max-width: 900px;">
+      <div class="card mb-3 shadow-lg mb-5 bg-white rounded" style="max-width: 900px;">
         <div class="row g-0">
           <div class="col-md-4">
             <%= attachment_image_tag @item, :image, size:"350x300" %>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h3 class="card-title ml-5">商品名： <%= @item.name %></h3>
+              <h3 class="card-title ml-5"><%= @item.name %></h3>
               <h6 class="card-text ml-5">商品説明： <%= @item.introduction %></h6>
               <h6 class="card-text ml-5">ジャンル： <%= @item.genre.name %></h6>
               <h6 class="card-text ml-5">税込価格（税抜価格）： <%= @item.add_tax_price.to_s %>（<%= @item.price %>）円</h6>
@@ -16,7 +16,7 @@
               <% elsif @item.is_active == false %>
                 <h6 class="card-text text-muted ml-5">販売停止中</h6>
               <% end %>
-              <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-success ml-5" %>
+              <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-outline-secondary ml-5" %>
             </div>
           </div>
         </div>
