@@ -1,5 +1,10 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
   PER = 6
+
+  def authenticate
+    redirect_to admin_seesion_path unless admin_signed_in?
+  end
 
   def index
     @items = Item.page(params[:page]).per(PER)

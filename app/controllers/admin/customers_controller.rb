@@ -1,5 +1,9 @@
 class Admin::CustomersController < ApplicationController
-    before_action :authenticate_admin!
+  before_action :authenticate_admin!
+
+  def authenticate
+    redirect_to admin_seesion_path unless admin_signed_in?
+  end
 
   def index
     @customers = Customer.all
