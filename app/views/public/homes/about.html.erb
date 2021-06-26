@@ -1,6 +1,6 @@
 <div id="about" class="big-bg">
   <header class="page-header wrapper">
-    <%= image_tag 'logo.png' %>
+    <a class="navbar-brand p-3" href="/"><%= image_tag 'logo.png' %></a>
     <nav>
       <ul class="main-nav">
         <u><%= link_to "商品一覧", items_path, class:"nav-link text-body" %></u>
@@ -10,17 +10,17 @@
     </nav>
   </header>
   <div class="about-content wrapper">
-    <h2 class="page-title">I love you...</h2>
+    <h2 class="page-title">Nagano Cake</h2>
     <p>ブラジルのナンシーさんも認める味を貴方の元へ</p>
-    <%= link_to "新規登録", new_admin_session_path, local: true, class: "btn btn-success btn-lg mr-5" %>
-    <%= link_to "ログイン", customers_sign_in_path, local: true, class: "btn btn-info btn-lg" %>
+    <%= link_to "新規登録", new_admin_session_path, local: true, class: "btn btn-success btn-lg mr-5 mb-3" %>
+    <%= link_to "ログイン", customers_sign_in_path, local: true, class: "btn btn-info btn-lg mb-3" %>
   </div>
 </div>
 
 <section id="location">
   <div class="wrapper">
     <div class="location-info">
-      <h3 class="sub-title">名古屋ケーキ 大阪城店</h3>
+      <h3 class="sub-title">Nagano Cake 大阪城店</h3>
       <p>
         住所：〒540-0002 大阪府大阪市中央区大阪城１−１<br>
         電話：000-000-0000<br>
