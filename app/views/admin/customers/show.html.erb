@@ -1,9 +1,9 @@
 <div class="container">
   <h2 class="mt-5"><%= @customer.full_name %>さんの会員詳細</h2>
-  <table class="table table-bordered">
+  <table class="table">
     <tbody>
-      <tr class="table-dark">
-        <th scope="row">氏名</th>
+      <tr>
+        <th scope="table-dark">氏名</th>
         <td><%= @customer.full_name %></td>
       </tr>
 
@@ -44,5 +44,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-success" %>
-  <%= link_to "注文履歴一覧を見る", admin_customer_orders_path %>
+  <%= link_to "編集する", edit_admin_customer_path, class:"btn btn-outline-secondary" %>
+  <%= link_to "注文履歴一覧を見る", admin_customer_orders_path, class:"btn btn-outline-secondary" %>
