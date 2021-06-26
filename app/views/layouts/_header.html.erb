@@ -24,7 +24,7 @@
                 </li>
             <% elsif customer_signed_in? %>
                 <li class="nav-item">
-                    <%= link_to "マイページ", customers_path(current_customer), class:"nav-link" %>
+                    <%= link_to current_customer.full_name, customers_path(current_customer), class:"nav-link" %>
                 </li>
                 <li class="nav-item">
                     <%= link_to "商品一覧", items_path, class:"nav-link" %>
