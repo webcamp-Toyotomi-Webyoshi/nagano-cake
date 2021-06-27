@@ -16,7 +16,7 @@
               <% elsif @item.is_active == false %>
                 <h6 class="card-text text-muted ml-5">販売停止中</h6>
               <% end %>
-              <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-outline-secondary ml-5" %>
+              <%= link_to "編集する", edit_admin_item_path(@item.id), class:"btn btn-secondary ml-5" %>
             </div>
           </div>
         </div>
