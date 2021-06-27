@@ -67,7 +67,7 @@
       <td>
         <%= form_for(order_item, url: admin_order_item_path(order_item.id)) do |f| %>
           <%= f.select :production_status, [["着手不可"],["製作待ち"],["製作中"],["製作完了"]] %>
-          <%= f.submit "更新" %>
+          <%= f.submit "更新", class:"btn btn-success" %>
         <% end %>
       </td>
 

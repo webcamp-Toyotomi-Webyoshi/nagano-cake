@@ -14,7 +14,7 @@
               <%= form_for(@cart_item, url: cart_items_path) do |f|%>
                 <%= f.hidden_field :item_id, value: @item.id %>
                 <%= f.number_field :amount, placeholder: "個数選択", min: 1, class:"ml-5" %>
-                <%= f.submit "Add cart", class:"btn btn-outline-secondary ml-5"%>
+                <%= f.submit "Add cart", class:"btn btn-success ml-5"%>
               <% end %>
             <% else %>
               <p class="card-text text-muted ml-5">売り切れ中</p>
