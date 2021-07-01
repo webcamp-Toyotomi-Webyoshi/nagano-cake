@@ -1,3 +1,23 @@
 // Place all the styles related to the admin/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#about {
+  background-image: image-url('image4.jpg');
+  min-height: 100vh;
+}
+
+#location {
+  margin: 20px 0 20px;
+}
+
+.main-nav {
+  display: flex;
+  font-size: 20px;
+  margin-top: 34px;
+  list-style: none;
+
+  u {
+    font-size: 500px;
+  }
+}
